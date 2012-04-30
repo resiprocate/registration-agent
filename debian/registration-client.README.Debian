@@ -1,0 +1,11 @@
+
+Quick start
+-----------
+
+After installing the package, the daemon starts.
+
+Adapt /etc/registrationClient/registrationClient.config to your needs
+
+Add SIP account details in /etc/registrationClient/users.txt
+
+

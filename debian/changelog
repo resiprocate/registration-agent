@@ -1,0 +1,5 @@
+registration-client (1.0.0-1) unstable; urgency=low
+
+  * Initial packaging.
+
+ -- Daniel Pocock <daniel@pocock.pro>  Mon, 30 Apr 2012 20:47:24 +0200
