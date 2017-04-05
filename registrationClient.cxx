@@ -4,6 +4,7 @@
 
 #include "resip/stack/ExtensionHeader.hxx"
 #include "resip/stack/HeaderTypes.hxx"
+#include "resip/stack/InteropHelper.hxx"
 #include "resip/stack/SipMessage.hxx"
 #include "resip/stack/SipStack.hxx"
 #include "resip/dum/ClientAuthManager.hxx"
@@ -30,6 +31,7 @@
 #endif
 
 #include "AppSubsystem.hxx"
+#include "CommandThread.hxx"
 #include "RegConfig.hxx"
 #include "UserRegistrationClient.hxx"
 #include "KeyedFile.hxx"
@@ -100,6 +102,9 @@ class MyClientRegistrationAgent : public ServerProcess
 
          InfoLog(<<"Starting client registration agent");
 
+         bool rport = cfg.getConfigBool("AddViaRport", true);
+         InteropHelper::setRportEnabled(rport);
+
 #ifdef USE_SSL
          Data certPath = cfg.getConfigData("CertificatePath", Data::Empty);
          Security* security;
@@ -160,6 +165,8 @@ class MyClientRegistrationAgent : public ServerProcess
          auto_ptr<KeepAliveManager> keepAlive(new KeepAliveManager);
          clientDum.setKeepAliveManager(keepAlive);
 
+         profile->setRportEnabled(rport);
+
          profile->addSupportedOptionTag(Token(Symbols::Outbound));
          profile->addSupportedOptionTag(Token(Symbols::Path));
 
@@ -178,11 +185,23 @@ class MyClientRegistrationAgent : public ServerProcess
          rowHandler->setUserRegistrationClient(&clientHandler);
          kf->doReload();
 
+         Data brokerURL(cfg.getConfigData("BrokerURL", "", true));
+         SharedPtr<CommandThread> cmd;
+         if(!brokerURL.empty())
+         {
+            cmd.reset(new CommandThread(brokerURL.c_str()));
+            cmd->run();
+         }
+
          int n = 0;
          while ( true )
          {
             stack.process(100);
             while(clientDum.process());
+            if(cmd.get())
+            {
+               cmd->processQueue(clientHandler);
+            }
             if(mustReload)
             {
                kf->doReload();
