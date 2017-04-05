@@ -19,6 +19,10 @@ CPPFLAGS += -DUSE_SSL
 CPPFLAGS += -DUSE_IPV6
 #CPPFLAGS += -DHAVE_EPOLL
 
+# cmake doesn't appear to recognize CPPFLAGS
+CFLAGS += $(CPPFLAGS)
+CXXFLAGS += $(CPPFLAGS)
+
 %:
 	dh $@ --builddirectory=.
 
