@@ -1,2 +1,3 @@
+registrationClient usr/sbin
 registrationClient.config etc/registrationClient
 users.txt etc/registrationClient
