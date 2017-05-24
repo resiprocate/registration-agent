@@ -1,0 +1,9 @@
+/var/log/registrationClient/registrationClient.log {
+	rotate 14
+	daily
+	compress
+	missingok
+	postrotate
+		start-stop-daemon -K -p /var/run/registrationClient/registrationClient.pid -s HUP -x /usr/sbin/registrationClient -q
+	endscript
+}
