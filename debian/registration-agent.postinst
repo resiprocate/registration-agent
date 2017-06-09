@@ -20,31 +20,31 @@ set -e
 # $1 = version of the package being upgraded.
 install() {
 
-    REGISTRATIONCLIENT_GROUP=registration-client
-    if ! getent group "$REGISTRATIONCLIENT_GROUP" >/dev/null; then
-        addgroup --system "$REGISTRATIONCLIENT_GROUP" || exit 1
+    REGISTRATIONAGENT_GROUP=registration-agent
+    if ! getent group "$REGISTRATIONAGENT_GROUP" >/dev/null; then
+        addgroup --system "$REGISTRATIONAGENT_GROUP" || exit 1
     fi
 
-    REGISTRATIONCLIENT_HOME=/var/lib
-    REGISTRATIONCLIENT_USER=registration-client
-    if ! getent passwd "$REGISTRATIONCLIENT_USER" >/dev/null; then
+    REGISTRATIONAGENT_HOME=/var/lib
+    REGISTRATIONAGENT_USER=registration-agent
+    if ! getent passwd "$REGISTRATIONAGENT_USER" >/dev/null; then
         adduser --system \
-           --home "${REGISTRATIONCLIENT_HOME}" \
+           --home "${REGISTRATIONAGENT_HOME}" \
            --shell /bin/false \
            --no-create-home \
-           --ingroup "$REGISTRATIONCLIENT_GROUP" \
+           --ingroup "$REGISTRATIONAGENT_GROUP" \
            --disabled-password \
            --disabled-login \
-           --gecos "registrationClient daemon" \
-               "$REGISTRATIONCLIENT_USER" || exit 1
+           --gecos "registrationAgent daemon" \
+               "$REGISTRATIONAGENT_USER" || exit 1
     fi
 
-    if [ ! -d ${REGISTRATIONCLIENT_HOME} ];
+    if [ ! -d ${REGISTRATIONAGENT_HOME} ];
     then
-        #mkdir -p ${REGISTRATIONCLIENT_HOME} || exit 1
-        #chown ${REGISTRATIONCLIENT_USER}:${REGISTRATIONCLIENT_GROUP} "${REGISTRATIONCLIENT_HOME}"
-        #chmod 0700 "${REGISTRATIONCLIENT_HOME}"
-        echo "Home directory ${REGISTRATIONCLIENT_HOME} not found!"
+        #mkdir -p ${REGISTRATIONAGENT_HOME} || exit 1
+        #chown ${REGISTRATIONAGENT_USER}:${REGISTRATIONAGENT_GROUP} "${REGISTRATIONAGENT_HOME}"
+        #chmod 0700 "${REGISTRATIONAGENT_HOME}"
+        echo "Home directory ${REGISTRATIONAGENT_HOME} not found!"
         exit 1
     fi
 

@@ -1,4 +1,4 @@
-Source: registration-client
+Source: registration-agent
 Section: net
 Priority: extra
 Maintainer: Debian VoIP Team <pkg-voip-maintainers@lists.alioth.debian.org>
@@ -7,14 +7,14 @@ Build-Depends: debhelper (>= 9.0.0), autotools-dev, dh-autoreconf, dpkg-dev (>= 
 Homepage: https://github.com/resiprocate/registration-agent
 Standards-Version: 3.9.2
 
-Package: registration-client
+Package: registration-agent
 Section: net
 Architecture: any
 Pre-Depends: ${misc:Pre-Depends}
 Depends: ${shlibs:Depends}, ${misc:Depends}, adduser
 Suggests: python-qpid-proton
 Description: SIP registration agent
- registration-client is a daemon that can maintain one or more SIP registrations,
+ registration-agent is a daemon that can maintain one or more SIP registrations,
  typically sending a Contact header to the registrar telling it to send incoming
  calls to a local SIP proxy or other gateway device that is unable to send
  a registration request itself.

@@ -1,0 +1,3 @@
+registrationAgent usr/sbin
+registrationAgent.config etc/registrationAgent
+users.txt etc/registrationAgent

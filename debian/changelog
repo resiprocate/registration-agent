@@ -1,17 +1,5 @@
-registration-client (1.2.0-1) unstable; urgency=low
+registration-agent (1.3.0-1) unstable; urgency=low
 
-  * New upstream release.
+  * Initial packaging. (Closes: #859678)
 
- -- Daniel Pocock <daniel@pocock.pro>  Thu, 08 Jun 2017 15:42:50 +0100
-
-registration-client (1.1.0-1) unstable; urgency=low
-
-  * New upstream release.
-
- -- Daniel Pocock <daniel@pocock.pro>  Wed, 05 Apr 2017 11:30:56 +0200
-
-registration-client (1.0.0-1) unstable; urgency=low
-
-  * Initial packaging.
-
- -- Daniel Pocock <daniel@pocock.pro>  Mon, 30 Apr 2012 20:47:24 +0200
+ -- Daniel Pocock <daniel@pocock.pro>  Fri, 09 Jun 2017 11:08:40 +0100

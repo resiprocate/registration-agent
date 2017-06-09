@@ -1,5 +1,5 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: registration-client
+Upstream-Name: registration-agent
 Upstream-Contact: reSIProcate developers <resiprocate-devel@lists.resiprocate.org>
 Source: https://github.com/resiprocate/registration-agent
 

@@ -1,0 +1,9 @@
+/var/log/registrationAgent/registrationAgent.log {
+	rotate 14
+	daily
+	compress
+	missingok
+	postrotate
+		start-stop-daemon -K -p /var/run/registrationAgent/registrationAgent.pid -s HUP -x /usr/sbin/registrationAgent -q
+	endscript
+}

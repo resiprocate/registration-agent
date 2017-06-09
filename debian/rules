@@ -29,7 +29,7 @@ CXXFLAGS += $(CPPFLAGS)
 override_dh_install:
 	dh_install
 	sed -i \
-		-e 's!UserAccountFile = users.txt!UserAccountFile = /etc/registrationClient/users.txt!' \
-		debian/registration-client/etc/registrationClient/registrationClient.config
-	install -D registration-client.init debian/registration-client/etc/init.d/registration-client
+		-e 's!UserAccountFile = users.txt!UserAccountFile = /etc/registrationAgent/users.txt!' \
+		debian/registration-agent/etc/registrationAgent/registrationAgent.config
+	install -D registration-agent.init debian/registration-agent/etc/init.d/registration-agent
 
