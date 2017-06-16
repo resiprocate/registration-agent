@@ -48,6 +48,10 @@ install() {
         exit 1
     fi
 
+    REGISTRATION_AGENT_LOGDIR=/var/log/registration-agent
+    chown ${REGISTRATIONAGENT_USER}:${REGISTRATIONAGENT_GROUP} ${REGISTRATION_AGENT_LOGDIR}
+    chmod 0750 ${REGISTRATION_AGENT_LOGDIR}
+
 }
 
 case "$1" in
