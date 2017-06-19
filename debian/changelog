@@ -1,5 +1,5 @@
-registration-agent (1.3.1-1) unstable; urgency=low
+registration-agent (1.3.2-1) unstable; urgency=low
 
   * Initial packaging. (Closes: #859678)
 
- -- Daniel Pocock <daniel@pocock.pro>  Fri, 09 Jun 2017 11:08:40 +0100
+ -- Daniel Pocock <daniel@pocock.pro>  Mon, 19 Jun 2017 18:36:46 +0200
