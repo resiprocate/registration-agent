@@ -3,7 +3,7 @@ Section: net
 Priority: extra
 Maintainer: Debian VoIP Team <pkg-voip-maintainers@lists.alioth.debian.org>
 Uploaders: Daniel Pocock <daniel@pocock.pro>
-Build-Depends: debhelper (>= 9.0.0), autotools-dev, dh-autoreconf, dpkg-dev (>= 1.16.1~), libresiprocate-1.11-dev (>> 1.11.0~beta2) | libresiprocate-dev, vim-common, libqpid-proton-cpp-dev
+Build-Depends: debhelper (>= 9.0.0), cmake, dpkg-dev (>= 1.16.1~), libresiprocate-1.11-dev (>> 1.11.0~beta4) | libresiprocate-dev, vim-common, libqpid-proton-cpp-dev, libcajun-dev
 Homepage: https://github.com/resiprocate/registration-agent
 Standards-Version: 3.9.2
 
