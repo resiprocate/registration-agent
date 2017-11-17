@@ -4,6 +4,6 @@
 	compress
 	missingok
 	postrotate
-		start-stop-daemon -K -p /var/run/registrationAgent/registrationAgent.pid -s HUP -x /usr/sbin/registrationAgent -q
+		invoke-rc.d registration-agent reload
 	endscript
 }
